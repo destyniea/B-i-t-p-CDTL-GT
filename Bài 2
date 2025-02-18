@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    int t; cin >> t;
+    while(t--){ // O(t);
+        int n; cin >> n;
+        int d = n%10, c = 0;
+        while(n){ // O(log1o(n))
+            c = n%10;
+            n /= 10;
+        }
+        if( d == c ) cout << "YES";
+        else cout << "NO";
+        cout << endl;
+    }
+}
+// => Độ phức tạp O(t*log10(n));
