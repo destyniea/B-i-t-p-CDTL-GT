@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int UCLN(int a, int b){ // O(log(min(a,b)));
+    while(b!=0){
+        int tmp = a % b;
+        a = b;
+        b = tmp;
+    }
+    return a;
+}
+long long BCNN(int a, int b){ // O(log(min(a,b)));
+    return a*b/UCLN(a,b);
+}
+
+int main(){
+    int t; cin >> t;
+    while(t--){ // O(t);
+        int a,b;
+        cin >> a >> b;
+        cout << UCLN(a,b) << " " << BCNN(a,b); 
+        cout << endl;
+    }
+}
+// => Độ phức tạp O(t*log(min(a,b)));
