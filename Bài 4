@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool nt(int n){
+    for(int i = 2 ; i<= sqrt(n); i++){
+        if( n%i == 0) return 0;
+    }
+    return n>1;
+}
+
+int main(){
+    int t; cin >> t;
+    for(int i = 1; i <=t ; i++){ // O(t)
+        int n; cin >> n;
+        cout << "Test " << i << ": ";
+        for(int i=2; i <= sqrt(n) ; i++){ // O(sqrt(n))
+
+            int cnt =0;
+            if( nt(i) ){
+                while(n%i==0){ // O(log_i(n))
+                    cnt++;
+                    n/=i;
+                }
+                if(cnt>0){
+                    cout << i << "(" << cnt << ") ";
+                    cnt =0;
+                }
+            }
+        }
+        if(n>1) cout << n << "(1)";
+        cout << endl;
+    }
+}
+// => Độ phức tạp O(t.sqrt(n))
